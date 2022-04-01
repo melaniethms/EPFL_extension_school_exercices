@@ -34,8 +34,6 @@ function convertMltoL () {
          alert(convertMltoL());
      }else if (secondQuestion == "grams to ml"){
          alert(convertGramsToMl());
-     }else{
-         alert("your answer don't match our propositions")
      }
  }
 
