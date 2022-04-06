@@ -8,7 +8,7 @@
 text_file = open("Zen_of_python.txt", mode = "r", encoding='utf-8')
 content =text_file.read()
 
-word_count = content.replace("-","").replace("\n", " ").split(" ")
+word_count = content.replace("-","").replace(".", "").replace("!", "").replace("'", " ").replace("*", "").replace(",", "").replace("\n", " ").replace("  ", " ").split(" ")
 
 print(len(word_count))
 
