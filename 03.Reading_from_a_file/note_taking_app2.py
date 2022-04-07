@@ -13,35 +13,52 @@
 
 file = open("notes.txt", "a")
 
-first_choice = input("What do you want to do ?\nPress 1 for adding a note\nPress 2 for searching your notes\n")
+first_choice = input("What do you want to do ?\nPress 1 for adding a note\nPress 2 for searching your notes\nPress 3 to stop the programme\n")
 
-
-# def adding_note() :
-#     note = input("Enter your note :\n")
-#     file.write("----\n" + note)
-    
-if first_choice == "1" :
+#adding notes to the text : 
+def adding_note() :
     note = input("Enter your note :\n")
     file = open("notes.txt", "a")
     file.write("----\n" + note + "\n")
     file.close()
-elif first_choice == "2" : 
+
+#search through notes
+def searching_note() :
     search = input("Enter the text to search :\n")
     file = open("notes.txt")
     content = file.read() 
     notes = content.split("----")#transform each note into elements of an array (seperated with ----)
-    for line in content :
-        if line.find(search) != -1:
+    for notes in content :
+        if notes.find(search) != -1:
             index = content.index(search)
-            print(content[index])
-    # if content.find(search) != -1 :#if the find() methode return something different from -1 print a or some strings 
-    #     for line in content : #loop through the array to find which element contain the substring and print them
-    #         if line.find(search) != -1:
-    #             print(line)
-    else :
-        print("you have no notes with the word " + str(search))
+            print(content[index])    
+
+#in a loop ? :
+if first_choice == "1" :
+    print(adding_note())
+elif first_choice == "2" :
+    print(searching_note())
 else :
     print("I can not opperate this commande")
+
+# if first_choice == "1" :
+#     note = input("Enter your note :\n")
+#     file = open("notes.txt", "a")
+#     file.write("----\n" + note + "\n")
+#     file.close()
+# elif first_choice == "2" : 
+#     search = input("Enter the text to search :\n")
+#     file = open("notes.txt")
+#     content = file.read() 
+#     notes = content.split("----")#transform each note into elements of an array (seperated with ----)
+#     for line in content :
+#         if line.find(search) != -1:
+#             index = content.index(search)
+#             print(content[index])
+#     else :
+#         print("you have no notes with the word " + str(search))
+# else :
+#     print("I can not opperate this commande")
     
     
     
