@@ -11,8 +11,6 @@
 #     when clicking "enter", the programme looks for this specific word in my notes and print notes (with their special characters) in which it did find the word
 #     then quit or replay
 
-file = open("notes.txt", "a")
-
 first_choice = input("What do you want to do ?\nPress 1 for adding a note\nPress 2 for searching your notes\n")
 
 
@@ -32,7 +30,7 @@ elif first_choice == "2" :
     notes = content.split("----")#transform each note into elements of an array (seperated with ----)
     if content.find(search) != -1 :#if the find() methode return something different from -1 print a or some strings 
         for line in content : #loop through the array to find which element contain the substring and print them
-            if search in line:
+            if line.find(search) != -1:
                 print(line)
     else :
         print("you have no notes with the word" + str(search))
