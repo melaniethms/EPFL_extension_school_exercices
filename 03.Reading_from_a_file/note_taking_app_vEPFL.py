@@ -18,7 +18,7 @@ def write_note(text):
     file.write(text + "\n")
     file.close()
 
-# Search through notes
+# Search through notes 
 def search(text):
     file = open("noteapp.txt")
     content = file.read()
