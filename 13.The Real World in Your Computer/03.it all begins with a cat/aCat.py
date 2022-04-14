@@ -1,8 +1,8 @@
-class Cat : 
-    name = ""
-    species = ""
-    weight = 0
-    color = ""
+class Cat :
+
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species 
 
     def sleep(self) :
         print ( self.name + " is sleeping")
@@ -11,18 +11,14 @@ class Cat :
     def eat(self, food) :
         print( self.name + " is eating " + food)
 
-tom = Cat()
-tom.name = "Tom"
-tom.species = "Tabby"
+tom = Cat("Tom", "Tabby")
 tom.weight = 2
 tom.color = "Orange"
 tom.sleep()
 tom.show()
 tom.eat("croquettes")
 
-athena = Cat()
-athena.name = "Athena"
-athena.species = "Siamese"
+athena = Cat("Athena", "Siamese")
 athena.weight = 1.5
 athena.color = "Brown"
 athena.sleep()
