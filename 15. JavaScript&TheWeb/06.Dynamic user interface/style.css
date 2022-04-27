@@ -1,4 +1,29 @@
-.beautiful {
-    font-size: 20px;
-    color: green;
+#main {
+    
 }
+#greyblock{
+    background-color: rgb(94, 94, 94) ;
+}
+#content {
+    background-color: rgb(94, 94, 94);
+    margin-left: auto;
+    margin-right: auto ;
+}
+.newItem {
+    font-size: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.button {
+    color: red;
+}
+
+
+/* 
+-tout est centré
+-block gris en haut
+-text dans le block gris en blanc
+-bouton vert, jaune et rouge
+
+*/
