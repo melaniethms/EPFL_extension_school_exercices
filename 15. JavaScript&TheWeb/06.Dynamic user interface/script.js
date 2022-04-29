@@ -1,6 +1,6 @@
 const addButton = document.getElementById("addButton");
 const removeButton = document.getElementById("removeButton");
-const clearButton = document.getElementById("ClearButton");
+const clearButton = document.getElementById("clearButton");
 const myText = document.getElementById("myText");
 const content = document.getElementById("content");
 
@@ -9,38 +9,34 @@ function addParagraph(){
     const newParagraph = document.createElement("p");
     newParagraph.innerText = myText.value;
     newParagraph.className = "newItem";
-    
     content.appendChild(newParagraph);
+    const newItemIdx = content.children.length - 1;
+    localStorage.setItem("element-"+newItemIdx, myText.value )
 }
-
-// // pour chaque nouveau paragraphe écrit je veux enregistrer dans le storage un key qui correspond à l'index et une value qui est l'innerText à cet index
-// function storeParagraph(){
-//     for (newParagraph in content){
-//         localStorage.setItem(String(content.indexOf(newParagraph), String(newParagraph.innerText)); 
-//     }
-// }
 
 function removeLastParagraph(){
     const paragraphs = document.getElementsByClassName("newItem");
     if(paragraphs.length > 0){
+        const newItemIdx = content.children.length - 1;
+        localStorage.removeItem("element-"+newItemIdx)
         content.removeChild(paragraphs[paragraphs.length - 1])
-    }
 
+    }
 }
 
 function clearParagraph(){
-    const paragraphs = document.getElementsByClassName("newItem");
-    for (i in paragraphs) {
-        if(paragraphs.length > 0){
-            paragraphs.removeChild(i)
-    }
-    
+    //     [...  ] = cloner le tableau pour que le total length reste le même pendant la boucle
+    const paragraphs = [...document.getElementsByClassName("newItem")];
+    if(paragraphs.length > 0){
+        for(let i=0; i < paragraphs.length;i++){
+            content.removeChild(paragraphs[i]);
+        }
+        localStorage.clear();   
     }
 }
 
-localStorage.clear();
+
 addButton.addEventListener("click", addParagraph);
-//addButton.addEventListener("click", storeParagraph);
 removeButton.addEventListener("click", removeLastParagraph);
 clearButton.addEventListener("click", clearParagraph);
 

@@ -1,22 +1,47 @@
+html{
+    background-color: rgb(205, 205, 205);
+}
+body{
+    padding: 0;
+    height: 100vh;
+}
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%; 
+}
 #main {
+  padding: 8px;
+  border: 20px;
+  border-radius: 16px;
+  background-color: white;
+  display: table;
+  margin: auto; 
+  
+}
+
+#content {
+    background-color: rgb(214, 214, 214);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: 4 px;
     
 }
-#greyblock{
-    background-color: rgb(94, 94, 94) ;
-}
-#content {
-    background-color: rgb(94, 94, 94);
-    margin-left: auto;
-    margin-right: auto ;
-}
 .newItem {
-    font-size: 20px;
-    color: white;
+    font-size: 1rem;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 .button {
     color: red;
+}
+#buttons{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
