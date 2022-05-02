@@ -19,7 +19,7 @@ function removeLastParagraph(){
     if(paragraphs.length > 0){
         const newItemIdx = content.children.length - 1;
         localStorage.removeItem("element-"+newItemIdx)
-        content.removeChild(paragraphs[paragraphs.length - 1])
+        content.removeChild(paragraphs[paragraphs.length])
 
     }
 }
