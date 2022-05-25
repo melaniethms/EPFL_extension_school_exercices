@@ -2,8 +2,10 @@
 
 
 function SaveUserName(){
-    if localStorage != null {
-        UserName = window.prompt("Quel est votre prénom ? ")
+    if(localStorage != null) {
+        UserName = window.prompt("Quel est votre prénom ? ");
+        var NameElement = document.getElementById("UserName");
+        NameElement.innerText = "Welcome back " + UserName;
         localStorage.setItem ("User Name", UserName);
         alert("welcome " + UserName)
     }
@@ -25,5 +27,9 @@ function addParagraph(){
     localStorage.setItem("element-"+newItemIdx, myText.value )
 }
 
-addButton.addEventListener("click", addParagraph);
+SaveUserName();
+
+if(addButton){
+    addButton.addEventListener("click", addParagraph);
+}
 

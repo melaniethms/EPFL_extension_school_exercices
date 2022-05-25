@@ -27,16 +27,20 @@ def search(text):
     else:
         print(result)
 
+#read all notes
+
+
+
 
 
 @app.route("/")
 def home():
-  write_note()
-  return render_template("index.html")
+  return render_template("index.html", SearchNotes= search())
 
 @app.route("/add")
 def add_notes():
-  return render_template("add.html")
+  return render_template("add.html", Addnotes = write_note())
+  # TypeError: write_note() missing 1 required positional argument: 'text'
 
 @app.route("/notes")
 def view_all_notes():
@@ -47,3 +51,5 @@ def search():
   return render_template("search-results.html")
 
 @app.route("/save-note")
+def save_note():
+    return render_template("index.html")
