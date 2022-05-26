@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from matplotlib.pyplot import text
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def write_note(text):
 
 # Search through notes 
 def search(text):
-    file = open("noteapp.txt")
+    file = open("noteapp.txt", "a")
     content = file.read()
     file.close()
     result = ""
@@ -28,6 +29,24 @@ def search(text):
         print(result)
 
 #read all notes
+def get_notes():
+    notes= open("noteapp.txt", "a")
+    content= notes.read()
+    all_notes = content.split("\n")
+    all_notes.pop(len(all_notes)-1)
+    notes.close()
+    return all_notes
+
+# search notes
+def search_notes():
+  notes = get_notes()
+  result = ""
+  for note in notes:
+    if note.lower().find(search_value.lower()) != -1: 
+      #je sais que search_value est pas defined je sais pas encore ce que je veux en faire 
+      result += "<p>" + note + "<p>"
+    if result == "":
+            result = "<p> no matching note </p>"
 
 
 
@@ -35,7 +54,7 @@ def search(text):
 
 @app.route("/")
 def home():
-  return render_template("index.html", SearchNotes= search())
+  return render_template("index.html", SearchNotes = search())
 
 @app.route("/add")
 def add_notes():
@@ -44,7 +63,7 @@ def add_notes():
 
 @app.route("/notes")
 def view_all_notes():
-  return render_template("notes.html")
+  return render_template("notes.html", ViewNotes = get_notes())
 
 @app.route("/search-results")
 def search():

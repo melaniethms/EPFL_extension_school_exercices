@@ -1,3 +1,11 @@
+<!-- 
+    -Fonction demander le nom:
+    en JS : quand la page se lance faire une alerte demander le nom + le garder dans le local storage + afficher le nom dans l'HTML
+    -Fonction chercher:
+    HTML : une case search + un bouton submit
+    JS ? Python ? : clicker sur le bouton m'envoi sur la page de résultat > prendre le texte de la case > parcourir le fichier txt > si une note contient la chaîne l'afficher
+ -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,14 +27,15 @@
         <a href="/search-results">Search</a>
         <br>     
     </div>
-    <div class="search">
+    <form action="/result" method="get">
+        <!-- obligé de faire un form ? c'est quoi action, pourquoi on écrit les méthodes là ? -->
         <input type="text" value="Enter your search ..." id="search-value">
         <input type="button" value="submit" id="search-button">
         <!-- comment le button peut diriger vers /search-results ?
         au passage sauver le contenu de search-value -->
-    </div>
+    </form>
     <div>
-        <p id="UserName"></p>
+        <h1 id="welcome"> Welcome !</h1>
     </div>
 </body>
 </html>
