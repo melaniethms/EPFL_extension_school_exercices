@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from matplotlib.pyplot import text
 
 app = Flask(__name__)
@@ -43,7 +43,7 @@ def search_notes():
   result = ""
   for note in notes:
     if note.lower().find(search_value.lower()) != -1: 
-      #je sais que search_value est pas defined je sais pas encore ce que je veux en faire 
+      #je sais que search_value n'est pas defined je ne sais pas encore ce que je veux en faire 
       result += "<p>" + note + "<p>"
     if result == "":
             result = "<p> no matching note </p>"
@@ -56,7 +56,7 @@ def search_notes():
 def home():
   return render_template("index.html", SearchNotes = search())
 
-@app.route("/add")
+@app.route("/add", methods = ["GET"])
 def add_notes():
   return render_template("add.html", Addnotes = write_note())
   # TypeError: write_note() missing 1 required positional argument: 'text'
